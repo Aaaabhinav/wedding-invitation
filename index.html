@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swapnil & Ritu | Wedding Invitation</title>
+  
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description" content="Wedding celebration of Swapnil & Ritu on 5th – 6th July 2026 at The Pod Retreat, Harshaguda, Hyderabad. Join us in our celebration of love. #SwituKiWedding">
+  <meta property="og:title" content="Swapnil & Ritu Wedding Invitation">
+  <meta property="og:description" content="We cordially invite you to celebrate the wedding ceremonies of Swapnil & Ritu on 5th – 6th July 2026.">
+  <meta property="og:image" content="assets/img/shiva-parvati.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/img/ganesha.jpg">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+  <!-- Floating Falling Rose Petals & Botanical Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Side Botanical Borders for Larger Screens -->
+  <div class="side-floral-left" aria-hidden="true"></div>
+  <div class="side-floral-right" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       SECTION 1: 3D INTERACTIVE ENVELOPE OPENING SCREEN (LANDING)
+       ======================================================================== -->
+  <div id="envelope-screen">
+    <div class="envelope-intro-header">
+      <img src="assets/img/ganesha.jpg" alt="Lord Ganesha" class="intro-ganesha-badge">
+      <div class="intro-shree-ganesh">|| श्री गणेशाय नमः ||</div>
+      <div class="intro-invitation-text">You're Invited</div>
+      <div class="intro-couple-highlight">
+        <span class="js-groom-name">Swapnil</span> &amp; <span class="js-bride-name">Ritu</span>
+      </div>
+    </div>
+
+    <!-- 3D Envelope -->
+    <div class="envelope-wrapper" id="envelope-wrapper" title="Click to open the invitation">
+      <div class="envelope-box">
+        <div class="envelope-filigree"></div>
+        <div class="envelope-flap"></div>
+        
+        <!-- Golden Monogram Wax Seal -->
+        <div class="wax-seal-badge" id="wax-seal-badge">
+          <img src="assets/img/wax_seal.jpg" alt="Monogram Wax Seal" class="wax-seal-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive CTA Prompt -->
+    <div class="envelope-cta-guide">
+      <button type="button" class="envelope-cta-btn" id="btn-open-envelope">
+        <span>✨ OPEN INVITATION ✨</span>
+      </button>
+      <span class="envelope-cta-subtitle">Tap envelope to unveil our journey</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MAIN WEDDING INVITATION CONTENT
+       ======================================================================== -->
+  <main id="main-invitation">
+    <div class="container">
+
+      <!-- ====================================================================
+           CARD 1: WELCOME INVITATION CARD
+           (Framed with g-welcome-bg.png and shiva-parvati.png)
+           ==================================================================== -->
+      <section class="welcome-card-sheet" id="welcome-card">
+        <!-- Top Arch & Bells Section -->
+        <div class="welcome-top-arch">
+          <!-- Ganesha in Arch Apex -->
+          <div class="welcome-ganesha-wrap">
+            <img src="assets/img/ganesha.jpg" alt="Lord Ganesha" class="welcome-ganesha-img">
+          </div>
+
+          <!-- Shree Ganeshaya Namah Pill Badge -->
+          <div class="welcome-pill-badge">
+            <span>|| OM SHREE GANESHAYA NAMAH ||</span>
+          </div>
+
+          <!-- Shloka Box -->
+          <div class="welcome-shloka-box">
+            <p class="welcome-shloka-sanskrit">
+              मङ्गलम् भगवान् विष्णुः मङ्गलम् गरुडध्वजः ।<br>
+              मङ्गलम् पुण्डरीकाक्षः मङ्गलाय तनो हरिः ।।
+            </p>
+            <p class="welcome-shloka-translit">
+              MANGALAM BHAGWAN VISHNU · MANGALAM GARUDADHWAJAH<br>
+              MANGALAM PUNDARIKAKSHAH · MANGALAYA TANO HARIH
+            </p>
+          </div>
+        </div>
+
+        <!-- Middle Couple Details -->
+        <div class="welcome-content-body">
+          <p class="welcome-invitation-text">
+            We request the honor of your gracious presence on<br>
+            the auspicious occasion of the wedding celebration of
+          </p>
+
+          <!-- Groom -->
+          <div class="welcome-person-block">
+            <h2 class="welcome-person-name js-groom-name">Swapnil</h2>
+            <div class="welcome-person-parents">
+              S/o <strong class="js-groom-parents">Mr. Srinivas Gudimalla &amp; Mrs. Sunitha Gudimalla</strong>
+            </div>
+            <div class="welcome-person-grandparents">
+              Grandson of <span class="js-groom-grandparents">Late Mr. Ramulu &amp; Mrs. Gouru Bai</span>
+            </div>
+          </div>
+
+          <!-- Weds -->
+          <div class="welcome-weds-divider">weds</div>
+
+          <!-- Bride -->
+          <div class="welcome-person-block">
+            <h2 class="welcome-person-name js-bride-name">Ritu</h2>
+            <div class="welcome-person-parents">
+              D/o <strong class="js-bride-parents">Mr. Manoj Kumar Pathak &amp; Mrs. Bachchi Devi</strong>
+            </div>
+            <div class="welcome-person-grandparents">
+              Granddaughter of <span class="js-bride-grandparents">Mr. Shovakant Pathak &amp; Late Mrs. Prabha Devi</span>
+            </div>
+          </div>
+
+          <!-- Shiva & Parvati Illustration -->
+          <div class="welcome-shiva-parvati-wrap">
+            <img src="assets/img/shiva-parvati.png" alt="Lord Shiva and Goddess Parvati Blessing" class="welcome-shiva-parvati-img">
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CARD 2: SAVE THE DATE & INTERACTIVE SCRATCH TO REVEAL
+           ==================================================================== -->
+      <section class="card-sheet scratch-section-wrapper">
+        <span class="section-badge">Save The Date</span>
+        <h2 class="section-main-heading">A Grand Celebration of Love</h2>
+        <p class="section-subheading">Unveil the auspicious date below</p>
+
+        <!-- Scratch Card Box -->
+        <div class="scratch-card-box">
+          <!-- Hidden Revealed Content -->
+          <div class="scratch-revealed-content">
+            <span class="revealed-tagline">Save Our Date</span>
+            <span class="revealed-date js-wedding-date">6th July 2026</span>
+            <span class="revealed-venue js-venue-name">The Pod Retreat, Hyderabad</span>
+          </div>
+
+          <!-- Interactive Scratch Canvas -->
+          <canvas id="scratch-canvas"></canvas>
+        </div>
+
+        <div class="scratch-hint">
+          <span>👆 Scratch with finger or mouse to reveal</span>
+        </div>
+        <button type="button" class="quick-reveal-btn" id="btn-quick-reveal">Reveal Date</button>
+
+        <!-- Real-Time Countdown Timer -->
+        <div class="countdown-container">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="timer-days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="timer-hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="timer-minutes">00</span>
+            <span class="countdown-label">Mins</span>
+          </div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="timer-seconds">00</span>
+            <span class="countdown-label">Secs</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 3: FESTIVITIES INTRO & STANDALONE CEREMONY CARDS
+           ==================================================================== -->
+      <section class="card-sheet festivities-intro-sheet">
+        <div style="text-align: center;">
+          <span class="section-badge">Wedding Festivities</span>
+          <h2 class="section-main-heading">Schedule of Celebrations</h2>
+          <p class="section-subheading">Join us across every joyful ceremony as two souls unite</p>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CEREMONY 1: HALDI CEREMONY (Standalone Custom Card)
+           Background: assets/img/g-haldi-background.png
+           Foreground: assets/img/haldi-foreground.png
+           ==================================================================== -->
+      <section class="ceremony-card ceremony-card-haldi" id="event-haldi">
+        <!-- Floating Petals Decorative Accents -->
+        <span class="floating-petal petal-p1" aria-hidden="true">🌸</span>
+        <span class="floating-petal petal-p2" aria-hidden="true">🌼</span>
+        <span class="floating-petal petal-p3" aria-hidden="true">✨</span>
+        <span class="floating-petal petal-p4" aria-hidden="true">🌸</span>
+
+        <!-- Center Frosted Glass Content Box -->
+        <div class="ceremony-frosted-card">
+          <!-- Monogram Seal -->
+          <div class="ceremony-monogram">
+            <span class="ceremony-monogram-text">SR</span>
+          </div>
+
+          <!-- Hashtag Tagline -->
+          <p class="ceremony-tagline">#SunMeetsSky</p>
+
+          <!-- Invitation Subtext -->
+          <p class="ceremony-subtext-heading">PLEASE JOIN US FOR A MORNING</p>
+          <p class="ceremony-subtext-desc">Filled with love, laughter and turmeric.</p>
+
+          <!-- Ceremony Title -->
+          <h3 class="ceremony-main-title">HALDI CEREMONY</h3>
+
+          <!-- Date / Time Pill Badge -->
+          <div class="ceremony-pill-badge">
+            <span>5TH JULY 2026 | 10:00 AM</span>
+          </div>
+        </div>
+
+        <!-- Foreground Couple Illustration -->
+        <div class="ceremony-foreground-wrap">
+          <img src="assets/img/haldi-foreground.png" alt="Haldi Ceremony Couple" class="ceremony-foreground-img">
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CEREMONY 2: MEHNDI CEREMONY (Standalone Custom Card)
+           Background: assets/img/g-mehndi-background.png
+           Foreground: assets/img/mehndi-foreground.png
+           ==================================================================== -->
+      <section class="ceremony-card ceremony-card-mehndi" id="event-mehndi">
+        <span class="floating-petal petal-p1" aria-hidden="true">🍃</span>
+        <span class="floating-petal petal-p2" aria-hidden="true">✨</span>
+        <span class="floating-petal petal-p3" aria-hidden="true">🌿</span>
+
+        <!-- Center Frosted Glass Content Box -->
+        <div class="ceremony-frosted-card">
+          <!-- Monogram Seal -->
+          <div class="ceremony-monogram">
+            <span class="ceremony-monogram-text">SR</span>
+          </div>
+
+          <!-- Hashtag Tagline -->
+          <p class="ceremony-tagline">#MehndiHaiRachneWali</p>
+
+          <!-- Invitation Subtext -->
+          <p class="ceremony-subtext-heading">PLEASE JOIN US FOR AN AFTERNOON</p>
+          <p class="ceremony-subtext-desc">Filled with vibrant hues, joyful moments and fragrant henna.</p>
+
+          <!-- Ceremony Title -->
+          <h3 class="ceremony-main-title">MEHNDI CEREMONY</h3>
+
+          <!-- Date / Time Pill Badge -->
+          <div class="ceremony-pill-badge">
+            <span>5TH JULY 2026 | 2:00 PM</span>
+          </div>
+        </div>
+
+        <!-- Foreground Couple Illustration -->
+        <div class="ceremony-foreground-wrap">
+          <img src="assets/img/mehndi-foreground.png" alt="Mehndi Ceremony Couple" class="ceremony-foreground-img ceremony-foreground-mehndi">
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CEREMONY 3: SANGEET CELEBRATION (Standalone Custom Card)
+           Background: assets/img/g-sangeet-background.png
+           Foreground: assets/img/sangeet-foreground.png
+           ==================================================================== -->
+      <section class="ceremony-card ceremony-card-sangeet" id="event-sangeet">
+        <span class="floating-petal petal-p1" aria-hidden="true">✨</span>
+        <span class="floating-petal petal-p2" aria-hidden="true">🎵</span>
+        <span class="floating-petal petal-p3" aria-hidden="true">💫</span>
+
+        <!-- Center Frosted Glass Content Box -->
+        <div class="ceremony-frosted-card">
+          <!-- Monogram Seal -->
+          <div class="ceremony-monogram">
+            <span class="ceremony-monogram-text">SR</span>
+          </div>
+
+          <!-- Hashtag Tagline -->
+          <p class="ceremony-tagline">#YeShaamShandaar</p>
+
+          <!-- Invitation Subtext -->
+          <p class="ceremony-subtext-heading">PLEASE JOIN US FOR AN EVENING</p>
+          <p class="ceremony-subtext-desc">Where melodies meet memories and hearts dance with joy.</p>
+
+          <!-- Ceremony Title -->
+          <h3 class="ceremony-main-title">SANGEET CELEBRATION</h3>
+
+          <!-- Date / Time Pill Badge -->
+          <div class="ceremony-pill-badge">
+            <span>5TH JULY 2026 | 8:00 PM</span>
+          </div>
+        </div>
+
+        <!-- Foreground Couple Illustration -->
+        <div class="ceremony-foreground-wrap">
+          <img src="assets/img/sangeet-foreground.png" alt="Sangeet Celebration Couple" class="ceremony-foreground-img ceremony-foreground-sangeet">
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           CEREMONY 4: WEDDING CEREMONY (Standalone Custom Card)
+           Background: assets/img/g-wedding-background.png
+           Foreground: assets/img/wedding-foreground.png
+           ==================================================================== -->
+      <section class="ceremony-card ceremony-card-wedding" id="event-wedding">
+        <span class="floating-petal petal-p1" aria-hidden="true">🌸</span>
+        <span class="floating-petal petal-p2" aria-hidden="true">✨</span>
+        <span class="floating-petal petal-p3" aria-hidden="true">🔥</span>
+
+        <!-- Center Frosted Glass Content Box -->
+        <div class="ceremony-frosted-card">
+          <!-- Monogram Seal -->
+          <div class="ceremony-monogram">
+            <span class="ceremony-monogram-text">SR</span>
+          </div>
+
+          <!-- Hashtag Tagline -->
+          <p class="ceremony-tagline">#SwituKiWedding</p>
+
+          <!-- Invitation Subtext -->
+          <p class="ceremony-subtext-heading">PLEASE JOIN US FOR A SACRED CELEBRATION</p>
+          <p class="ceremony-subtext-desc">As two hearts, two families and two journeys unite in sacred matrimony.</p>
+
+          <!-- Ceremony Title -->
+          <h3 class="ceremony-main-title">WEDDING CEREMONY</h3>
+
+          <!-- Date / Time Pill Badge -->
+          <div class="ceremony-pill-badge">
+            <span>6TH JULY 2026 | 6:00 PM ONWARDS</span>
+          </div>
+
+          <!-- Detailed Sacred Timeline -->
+          <div class="ceremony-timeline-pill-box">
+            <span class="ceremony-timeline-item">🎺 Baraat · 6:00 PM</span>
+            <span class="ceremony-timeline-divider">✦</span>
+            <span class="ceremony-timeline-item">🌸 Varmala · 8:00 PM</span>
+            <span class="ceremony-timeline-divider">✦</span>
+            <span class="ceremony-timeline-item">🔥 Sacred Pheras · 11:00 PM</span>
+          </div>
+        </div>
+
+        <!-- Foreground Couple Illustration -->
+        <div class="ceremony-foreground-wrap">
+          <img src="assets/img/wedding-foreground.png" alt="Wedding Ceremony Couple" class="ceremony-foreground-img ceremony-foreground-wedding">
+        </div>
+      </section>
+
+
+
+      <!-- ====================================================================
+           CARD 5: VENUE & AWAITING NOBLE PRESENCE
+           ==================================================================== -->
+      <section class="card-sheet">
+        <div class="venue-card-inner">
+          <div class="evil-eye-icon">🧿</div>
+          <h2 class="awaiting-title">Awaiting Your Noble Presence</h2>
+          <p class="awaiting-message js-host-message">
+            “Join us as we celebrate love, laughter, and the beginning of forever beautiful together.”
+          </p>
+
+          <div class="host-signature-box">
+            <div class="host-families js-host-family">Gudimalla &amp; Pathak Families</div>
+            <div class="cordially-invited">Lovingly Invited By: <strong class="js-invited-by">Abhishek Gudimalla</strong></div>
+          </div>
+
+          <div class="venue-details-box">
+            <span class="venue-tag">Wedding Venue</span>
+            <h3 class="venue-name js-venue-name">The Pod Retreat</h3>
+            <p class="venue-address js-venue-address">Harshaguda, Shamshabad, Hyderabad, Telangana</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=The+Pod+Retreat+Harshaguda+Hyderabad" target="_blank" rel="noopener noreferrer" class="directions-btn" id="btn-get-directions">
+              <span>📍 GET DIRECTIONS</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER & SOCIAL HASHTAG
+       ======================================================================== -->
+  <footer class="wedding-footer">
+    <img src="assets/img/ganesha.jpg" alt="Lord Ganesha" class="footer-ganesha-small">
+    <div class="footer-with-love">With Love</div>
+    <div class="footer-names"><span class="js-groom-name">Swapnil</span> &amp; <span class="js-bride-name">Ritu</span></div>
+    <div class="footer-date js-wedding-date">5th – 6th July 2026</div>
+
+    <button type="button" class="footer-hashtag-btn" id="btn-copy-hashtag">
+      <span class="js-hashtag">#SwituKiWedding</span>
+      <span>📋</span>
+    </button>
+    <span class="footer-copy-toast" id="hashtag-toast">Copied hashtag to clipboard!</span>
+  </footer>
+
+  <!-- ========================================================================
+       FLOATING AUDIO CONTROLLER
+       ======================================================================== -->
+  <div class="audio-controller">
+    <div class="audio-tooltip" id="audio-tooltip">Play Music</div>
+    <button type="button" class="audio-toggle-btn" id="btn-audio-toggle" aria-label="Toggle background music">
+      <span id="audio-icon">🔇</span>
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="src/config.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
