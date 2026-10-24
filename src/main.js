@@ -239,6 +239,7 @@ function initScratchCard() {
   }
 
   canvas.addEventListener('mousedown', (e) => {
+    e.preventDefault();
     isDrawing = true;
     const pos = getPos(e);
     scratch(pos.x, pos.y);
@@ -253,18 +254,21 @@ function initScratchCard() {
   window.addEventListener('mouseup', () => isDrawing = false);
 
   canvas.addEventListener('touchstart', (e) => {
+    if (e.cancelable) e.preventDefault();
     isDrawing = true;
     const pos = getPos(e);
     scratch(pos.x, pos.y);
-  }, { passive: true });
+  }, { passive: false });
 
   window.addEventListener('touchmove', (e) => {
     if (!isDrawing) return;
+    if (e.cancelable) e.preventDefault();
     const pos = getPos(e);
     scratch(pos.x, pos.y);
-  }, { passive: true });
+  }, { passive: false });
 
   window.addEventListener('touchend', () => isDrawing = false);
+  window.addEventListener('touchcancel', () => isDrawing = false);
 
   if (quickRevealBtn) {
     quickRevealBtn.addEventListener('click', revealFully);

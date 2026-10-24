@@ -102,6 +102,7 @@ body {
   opacity: 0;
   transform: scale(1.1);
   pointer-events: none;
+  visibility: hidden;
 }
 
 .envelope-intro-header {
@@ -125,7 +126,7 @@ body {
 .intro-shree-ganesh {
   font-family: var(--font-royal);
   color: var(--primary-maroon);
-  letter-spacing: 3px;
+
   font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -351,6 +352,12 @@ body {
   padding: 55px 40px 50px;
 }
 
+/* Fold wrappers transparent on desktop */
+.welcome-first-fold,
+.welcome-second-fold {
+  display: contents;
+}
+
 /* Top Arch with Golden Temple Bells */
 .welcome-top-arch {
   position: relative;
@@ -359,10 +366,10 @@ body {
   background: none;
 }
 
-/* Ganesha in Top Arch Apex */
+/* Ganesha in Top Arch Apex (Styled identically to intro-ganesha-badge) */
 .welcome-ganesha-wrap {
-  width: 76px;
-  height: 76px;
+  width: auto;
+  height: auto;
   margin: 0 auto 12px;
   display: flex;
   align-items: center;
@@ -370,10 +377,14 @@ body {
 }
 
 .welcome-ganesha-img {
-  width: 100%;
-  height: 100%;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px;
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35);
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   animation: floatSoft 4s ease-in-out infinite;
 }
 
@@ -437,12 +448,15 @@ body {
 }
 
 .welcome-invitation-text {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  color: #523e42;
-  line-height: 1.6;
+  font-family: var(--font-royal);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-maroon);
+  line-height: 1.7;
+  letter-spacing: 1.2px;
   margin: 15px auto 25px;
   max-width: 580px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 /* Person Name & Family Block */
@@ -521,159 +535,189 @@ body {
     padding: 0 10px;
   }
 
-  /* First card covers whole screen of phone from top to bottom without scrolling */
+  /* Welcome Card Sheet: Continuous single card in mobile view */
   .welcome-card-sheet {
-    height: 100dvh;
-    min-height: 100vh;
-    max-height: 100dvh;
+    height: auto;
+    min-height: auto;
+    max-height: none;
     margin: 0 auto 35px;
-    padding: 10px 12px 6px;
-    border-radius: 16px;
+    padding: 28px 14px 20px;
+    border-radius: 18px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     box-sizing: border-box;
     overflow: hidden;
+    background-color: #faf7f2;
+    background-image: url('../assets/img/g-welcome-bg.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 150% auto;
+    border: 1.5px solid rgba(197, 160, 89, 0.45);
+    box-shadow: 0 10px 35px rgba(84, 18, 36, 0.12), 0 0 20px rgba(197, 160, 89, 0.2);
+  }
+
+  /* Merged folds for complete continuity in mobile view */
+  .welcome-first-fold,
+  .welcome-second-fold {
+    display: contents;
   }
 
   .welcome-top-arch {
     width: 100%;
     padding: 0;
-    margin-bottom: 0;
+    margin-bottom: 2px;
     flex-shrink: 0;
-  }
-
-  .welcome-ganesha-wrap {
-    width: 36px;
-    height: 36px;
-    margin: 0 auto 2px;
-  }
-
-  .welcome-pill-badge {
-    padding: 2px 10px;
-    margin-bottom: 2px;
-    background: rgba(255, 252, 246, 0.95);
-  }
-
-  .welcome-pill-badge span {
-    font-size: 0.6rem;
-    letter-spacing: 1.4px;
-  }
-
-  .welcome-shloka-box {
-    padding: 5px 10px;
-    margin: 0 auto 2px;
-    border-radius: 10px;
-    max-width: 92%;
-    background: rgba(255, 253, 248, 0.95);
-    box-shadow: 0 2px 8px rgba(84, 18, 36, 0.05);
-  }
-
-  .welcome-shloka-sanskrit {
-    font-size: 0.76rem;
-    line-height: 1.3;
-    letter-spacing: 0.2px;
-    margin-bottom: 2px;
-    color: #7d182e;
-  }
-
-  .welcome-shloka-translit {
-    font-size: 0.54rem;
-    line-height: 1.2;
-    letter-spacing: 0.5px;
-  }
-
-  /* Brought down cleanly into the clear ivory white canvas of the arch */
-  .welcome-content-body {
-    width: 100%;
-    padding: 0 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    flex: 1 1 auto;
-    min-height: 0;
-    margin-top: 80px;
+  }
+
+  .welcome-ganesha-wrap {
+    width: auto;
+    height: auto;
+    margin: 6px auto 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .welcome-ganesha-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-primary);
+    background: rgba(255, 255, 255, 0.85);
+    padding: 4px;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35);
+    object-fit: contain;
+    mix-blend-mode: normal;
+  }
+
+  .welcome-pill-badge {
+    display: inline-block;
+    padding: 4px 20px;
+    margin-bottom: 12px;
+    background: rgba(255, 252, 246, 0.95);
+    border: 1.5px solid rgba(197, 160, 89, 0.5);
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(197, 160, 89, 0.18);
+  }
+
+  .welcome-pill-badge span {
+    font-size: clamp(0.66rem, 2.8vw, 0.74rem);
+    letter-spacing: 2px;
+    color: var(--primary-maroon);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .welcome-shloka-box {
+    padding: 16px 16px;
+    margin: 0 auto 10px;
+    border-radius: 16px;
+    max-width: 90%;
+    background: rgba(255, 253, 248, 0.95);
+    border: 1.5px solid rgba(197, 160, 89, 0.45);
+    box-shadow: 0 4px 14px rgba(84, 18, 36, 0.06);
+    text-align: center;
+  }
+
+  .welcome-shloka-sanskrit {
+    font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
+    color: #7d182e;
+    font-weight: 700;
+  }
+
+  .welcome-shloka-translit {
+    font-family: var(--font-serif);
+    font-size: 0.68rem;
+    line-height: 1.5;
+    letter-spacing: 0.8px;
+    color: var(--accent-burgundy);
+    font-style: italic;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   .welcome-invitation-text {
-    font-size: clamp(0.72rem, 2.2vw, 0.8rem);
-    line-height: 1.38;
-    color: #4a1521;
-    font-weight: 600;
-    font-family: var(--font-serif);
-    background: rgba(255, 253, 248, 0.7);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border-radius: 12px;
-    border: 1px solid rgba(197, 160, 89, 0.25);
-    box-shadow: 0 2px 6px rgba(84, 18, 36, 0.04);
-    padding: 3px 12px;
-    margin: 0 auto clamp(4px, 0.9vh, 8px);
-    max-width: 82%;
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
-    flex-shrink: 0;
+    font-family: var(--font-royal);
+    font-size: 0.72rem;
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: 0.9px;
+    color: var(--primary-maroon);
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 12px auto 14px;
+    max-width: 65%;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
   }
 
   .welcome-person-block {
     margin: 0 auto;
-    max-width: 84%;
+    max-width: 88%;
     text-align: center;
-    flex-shrink: 0;
   }
 
   .welcome-person-name {
-    font-size: clamp(2.15rem, 6.4vw, 2.65rem);
+    font-family: var(--font-script);
+    font-size: clamp(3.2rem, 9.5vw, 3.8rem);
     line-height: 1.05;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     color: #8e1b34;
-    text-shadow: 0 1px 4px rgba(142, 27, 52, 0.15), 0 0 6px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 4px rgba(142, 27, 52, 0.12);
   }
 
   .welcome-person-parents {
-    font-size: clamp(0.68rem, 2vw, 0.76rem);
-    line-height: 1.25;
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    line-height: 1.4;
     color: #4e363b;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
   }
 
   .welcome-person-grandparents {
-    font-size: clamp(0.6rem, 1.8vw, 0.68rem);
-    line-height: 1.18;
-    margin-top: 1px;
+    font-family: var(--font-serif);
+    font-size: 0.76rem;
+    line-height: 1.3;
+    margin-top: 3px;
     color: #72565b;
+    font-style: italic;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
   }
 
+  /* Weds Divider: Natural continuous spacing between Swapnil and Ritu */
   .welcome-weds-divider {
-    font-size: clamp(1.2rem, 3.8vw, 1.45rem);
-    margin: clamp(2px, 0.6vh, 6px) 0;
+    font-family: var(--font-script);
+    font-size: 2.1rem;
+    margin: 10px auto 12px;
     line-height: 1;
     color: #8e1b34;
-    flex-shrink: 0;
     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
   }
 
-  /* Majestic enlarged Shiva-Parvati photo */
+  /* Shiva-Parvati Blessing Wrap: Natural flow below Ritu */
   .welcome-shiva-parvati-wrap {
-    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: clamp(4px, 1vh, 10px) 0 2px;
-    min-height: 0;
+    margin: 16px auto 8px;
     width: 100%;
   }
 
   .welcome-shiva-parvati-img {
-    height: 100%;
-    max-height: clamp(145px, 24vh, 215px);
-    min-height: 115px;
     width: auto;
-    max-width: 85%;
+    max-width: 290px;
+    max-height: clamp(260px, 42vh, 360px);
     object-fit: contain;
-    filter: drop-shadow(0 6px 16px rgba(84, 18, 36, 0.24));
+    filter: drop-shadow(0 8px 18px rgba(84, 18, 36, 0.22));
     transition: transform 0.3s ease;
   }
 
@@ -682,13 +726,12 @@ body {
   }
 
   .welcome-scroll-hint {
-    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2px auto 0;
-    padding: 2px 10px;
-    border-radius: 14px;
+    margin: 4px auto 2px;
+    padding: 3px 12px;
+    border-radius: 15px;
     background: rgba(255, 255, 255, 0.88);
     border: 1px solid rgba(197, 160, 89, 0.45);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -697,7 +740,7 @@ body {
 
   .welcome-scroll-hint span {
     font-family: var(--font-royal);
-    font-size: 0.58rem;
+    font-size: 0.62rem;
     font-weight: 700;
     color: var(--gold-dark);
     letter-spacing: 1.2px;
@@ -779,6 +822,7 @@ body {
   box-shadow: var(--shadow-lg);
   border: 3px solid var(--gold-primary);
   user-select: none;
+  touch-action: none;
 }
 
 /* Secret underneath */
@@ -825,6 +869,7 @@ body {
   z-index: 2;
   cursor: crosshair;
   transition: opacity 0.5s ease;
+  touch-action: none;
 }
 
 .scratch-hint {
