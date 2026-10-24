@@ -552,7 +552,7 @@ body {
     background-image: url('../assets/img/g-welcome-bg.png');
     background-repeat: no-repeat;
     background-position: center top;
-    background-size: 150% auto;
+    background-size: 190% auto;
     border: 1.5px solid rgba(197, 160, 89, 0.45);
     box-shadow: 0 10px 35px rgba(84, 18, 36, 0.12), 0 0 20px rgba(197, 160, 89, 0.2);
   }
