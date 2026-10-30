@@ -5,28 +5,28 @@
 const WEDDING_CONFIG = {
   // Couple Information
   groom: {
-    name: "Swapnil",
-    fullName: "Swapnil Gudimalla",
-    parents: "Mr. Srinivas Gudimalla & Mrs. Sunitha Gudimalla",
-    grandparents: "Late Mr. Ramulu & Mrs. Gouru Bai"
+    name: "Mitesh",
+    fullName: "Mitesh Upadhyay",
+    parents: "Mr. Yogesh Bhai Upadhyay & Mrs. Urvashi Upadhyay",
+    grandparents: ""
   },
   bride: {
-    name: "Ritu",
-    fullName: "Ritu Pathak",
-    parents: "Mr. Manoj Kumar Pathak & Mrs. Bachchi Devi",
-    grandparents: "Mr. Shovakant Pathak & Late Mrs. Prabha Devi"
+    name: "Mrunal",
+    fullName: "Mrunal Rahangdale",
+    parents: "Mr. Ganesh Rahangdale & Mrs. Kamal Rahangdale",
+    grandparents: ""
   },
 
   // Monogram & Hashtag
-  monogram: "SR",
-  hashtag: "#SwituKiWedding",
-  weddingDateDisplay: "5th – 6th July 2026",
-  weddingDateISO: "2026-07-06T18:00:00+05:30", // For countdown timer
+  monogram: "MM",
+  hashtag: "#MrunalWedsMitesh",
+  weddingDateDisplay: "4th – 6th December 2026",
+  weddingDateISO: "2026-12-06T18:00:00+05:30", // For countdown timer
 
   // Host Details
   hosts: {
-    families: "Gudimalla & Pathak Families",
-    cordiallyInvitedBy: "Abhishek Gudimalla",
+    families: "Upadhyay & Rahangdale Families",
+    cordiallyInvitedBy: "Upadhyay & Rahangdale Families",
     message: "Join us as we celebrate love, laughter, and the beginning of forever beautiful together."
   },
 
@@ -47,27 +47,10 @@ const WEDDING_CONFIG = {
   // Events Schedule
   events: [
     {
-      id: "haldi",
-      title: "Haldi Ceremony",
-      tagline: "#SunMeetsSky",
-      date: "Sunday, 5th July 2026",
-      time: "10:00 AM Onwards",
-      subtext: "PLEASE JOIN US FOR A MORNING",
-      description: "Filled with love, laughter and golden turmeric blessings.",
-      themeColor: "#EAB308",
-      accentBg: "linear-gradient(135deg, rgba(254, 240, 138, 0.35) 0%, rgba(253, 224, 71, 0.15) 100%)",
-      image: "assets/img/haldi.jpg",
-      dressCode: {
-        title: "Sunshine Shades",
-        description: "Comfortable festive wear in cheerful shades of yellow, mustard, and marigold.",
-        palette: ["#FEF08A", "#FACC15", "#EAB308", "#CA8A04", "#FFFFFF"]
-      }
-    },
-    {
       id: "mehndi",
       title: "Mehndi Ceremony",
       tagline: "#MehndiHaiRachneWali",
-      date: "Sunday, 5th July 2026",
+      date: "Friday, 4th December 2026",
       time: "2:00 PM Onwards",
       subtext: "PLEASE JOIN US FOR AN AFTERNOON",
       description: "Filled with vibrant hues, joyful moments and the fragrant artistry of henna.",
@@ -84,8 +67,8 @@ const WEDDING_CONFIG = {
       id: "sangeet",
       title: "Sangeet Celebration",
       tagline: "#YeShaamShandaar",
-      date: "Sunday, 5th July 2026",
-      time: "8:00 PM Onwards",
+      date: "Saturday, 5th December 2026",
+      time: "7:00 PM Onwards",
       subtext: "PLEASE JOIN US FOR AN EVENING",
       description: "Where melodies meet memories and hearts dance with unrestrained joy.",
       themeColor: "#4338CA",
@@ -98,11 +81,28 @@ const WEDDING_CONFIG = {
       }
     },
     {
+      id: "haldi",
+      title: "Haldi Ceremony",
+      tagline: "#SunMeetsSky",
+      date: "Sunday, 6th December 2026",
+      time: "10:00 AM (Morning)",
+      subtext: "PLEASE JOIN US FOR A MORNING",
+      description: "Filled with love, laughter and golden turmeric blessings.",
+      themeColor: "#EAB308",
+      accentBg: "linear-gradient(135deg, rgba(254, 240, 138, 0.35) 0%, rgba(253, 224, 71, 0.15) 100%)",
+      image: "assets/img/haldi.jpg",
+      dressCode: {
+        title: "Sunshine Shades",
+        description: "Comfortable festive wear in cheerful shades of yellow, mustard, and marigold.",
+        palette: ["#FEF08A", "#FACC15", "#EAB308", "#CA8A04", "#FFFFFF"]
+      }
+    },
+    {
       id: "wedding",
       title: "Wedding Ceremony",
-      tagline: "#SwituKiWedding",
-      date: "Monday, 6th July 2026",
-      time: "Evening Onwards",
+      tagline: "#MrunalWedsMitesh",
+      date: "Sunday, 6th December 2026",
+      time: "6:00 PM Onwards (Evening)",
       subtext: "PLEASE JOIN US FOR A SACRED CELEBRATION",
       description: "As two hearts, two families, and two journeys unite in sacred matrimony.",
       themeColor: "#831843",

@@ -281,7 +281,7 @@ function initScratchCard() {
 function initCountdownTimer() {
   const targetDateStr = (typeof WEDDING_CONFIG !== 'undefined' && WEDDING_CONFIG.weddingDateISO)
     ? WEDDING_CONFIG.weddingDateISO
-    : "2026-07-06T18:00:00+05:30";
+    : "2026-12-06T18:00:00+05:30";
 
   const targetDate = new Date(targetDateStr).getTime();
 
@@ -523,7 +523,7 @@ function initHashtagCopy() {
   btn.addEventListener('click', () => {
     const text = (typeof WEDDING_CONFIG !== 'undefined' && WEDDING_CONFIG.hashtag)
       ? WEDDING_CONFIG.hashtag
-      : '#SwituKiWedding';
+      : '#MrunalWedsMitesh';
 
     navigator.clipboard.writeText(text).then(() => {
       if (toast) {
