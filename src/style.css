@@ -123,7 +123,8 @@ body {
   object-fit: contain;
 }
 
-.intro-shree-ganesh {
+.intro-shree-ganesh,
+.intro-satnam {
   font-family: var(--font-royal);
   color: var(--primary-maroon);
 
@@ -839,6 +840,7 @@ body {
 }
 
 .revealed-date {
+  text-align: center;
   font-family: var(--font-royal);
   font-size: 2rem;
   font-weight: 800;

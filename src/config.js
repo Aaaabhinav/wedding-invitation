@@ -20,6 +20,7 @@ const WEDDING_CONFIG = {
   // Monogram & Hashtag
   monogram: "MM",
   hashtag: "#MrunalWedsMitesh",
+  saveTheDateDisplay: "6th December",
   weddingDateDisplay: "4th – 6th December 2026",
   weddingDateISO: "2026-12-06T18:00:00+05:30", // For countdown timer
 
@@ -32,14 +33,15 @@ const WEDDING_CONFIG = {
 
   // Venue Details
   venue: {
-    name: "The Pod Retreat",
-    address: "Harshaguda, Shamshabad, Hyderabad, Telangana",
-    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Pod+Retreat+Harshaguda+Hyderabad"
+    name: "Gopi Utsav Vatika",
+    address: "Gopi Utsav Vatika, Khanpur Road, New Alkapuri, Ankodiya, Vadodara, Gujarat – 390023",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Gopi%20Utsav%20Vatika%2C%20Khanpur%20Road%2C%20New%20Alkapuri%2C%20Ankodiya%2C%20Vadodara%2C%20Gujarat%20390023"
   },
 
   // Sanskrit Shloka & Spiritual Header
   spiritual: {
     ganeshaInvocation: "|| श्री गणेशाय नमः ||",
+    satnamInvocation: "॥ सत्यनाम ॥",
     shlokaSanskrit: "मंगलम् भगवान विष्णुः मंगलम् गरुडध्वजः ।\nमंगलम् पुण्डरीकाक्षः मंगलाय तनो हरिः ॥",
     shlokaTranslation: "“May the auspicious Lord Vishnu, He who has Garuda as His emblem, and the lotus-eyed Lord, bring auspiciousness and blessings to all.”"
   },
@@ -51,7 +53,7 @@ const WEDDING_CONFIG = {
       title: "Mehndi Ceremony",
       tagline: "#MehndiHaiRachneWali",
       date: "Friday, 4th December 2026",
-      time: "2:00 PM Onwards",
+      time: "4:00 PM Onwards",
       subtext: "PLEASE JOIN US FOR AN AFTERNOON",
       description: "Filled with vibrant hues, joyful moments and the fragrant artistry of henna.",
       themeColor: "#15803D",
@@ -110,8 +112,8 @@ const WEDDING_CONFIG = {
       image: "assets/img/wedding.jpg",
       timeline: [
         { label: "Baraat", time: "6:00 PM", icon: "🎺" },
-        { label: "Varmala", time: "8:00 PM", icon: "🌸" },
-        { label: "Sacred Rituals & Pheras", time: "11:00 PM", icon: "🔥" }
+        { label: "Mangalashtak", time: "8:00 PM", icon: "🌸" },
+        { label: "Sacred Rituals & Pheras", time: "9:00 PM", icon: "🔥" }
       ],
       dressCode: {
         title: "Royal Wedding Hues",

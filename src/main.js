@@ -43,6 +43,7 @@ function populateConfigData() {
   document.querySelectorAll('.js-bride-parents').forEach(el => el.textContent = cfg.bride.parents);
   document.querySelectorAll('.js-bride-grandparents').forEach(el => el.textContent = cfg.bride.grandparents);
   document.querySelectorAll('.js-monogram').forEach(el => el.textContent = cfg.monogram);
+  document.querySelectorAll('.js-save-the-date').forEach(el => el.textContent = cfg.saveTheDateDisplay || "6th December");
   document.querySelectorAll('.js-wedding-date').forEach(el => el.textContent = cfg.weddingDateDisplay);
   document.querySelectorAll('.js-hashtag').forEach(el => el.textContent = cfg.hashtag);
   document.querySelectorAll('.js-venue-name').forEach(el => el.textContent = cfg.venue.name);
