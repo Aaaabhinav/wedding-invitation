@@ -1214,6 +1214,17 @@ body {
   font-size: 0.75rem;
 }
 
+/* Ceremony Venue Address */
+.ceremony-address {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+}
+
 /* Foreground Couple Wrap */
 .ceremony-foreground-wrap {
   position: relative;
@@ -1338,6 +1349,12 @@ body {
     letter-spacing: 1.2px;
     position: relative;
     z-index: 5;
+  }
+
+  .ceremony-address {
+    font-size: 0.95rem;
+    margin-top: 10px;
+    line-height: 1.45;
   }
 
   /* Lower foreground so couple never merges with the dates */
