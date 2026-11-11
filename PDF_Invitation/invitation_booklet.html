@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mrunal &amp; Mitesh | Wedding Invitation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #faf7f2;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #2c1a1d;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Page Canvas */
+    .pdf-page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      min-height: 297mm;
+      position: relative;
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14mm 14mm 12mm;
+      background-color: #faf7f2;
+      background-image: url('../assets/img/parchment_bg.jpg');
+      background-repeat: repeat;
+      background-size: 350px;
+    }
+
+    /* Outer Royal Borders */
+    .page-border-frame {
+      position: absolute;
+      inset: 7mm;
+      border: 2px solid #c5a059;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .page-border-inner {
+      position: absolute;
+      inset: 9mm;
+      border: 1px solid rgba(197, 160, 89, 0.45);
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .corner-ornament {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #c5a059;
+      z-index: 101;
+    }
+    .corner-tl { top: 6.5mm; left: 6.5mm; border-right: none; border-bottom: none; }
+    .corner-tr { top: 6.5mm; right: 6.5mm; border-left: none; border-bottom: none; }
+    .corner-bl { bottom: 6.5mm; left: 6.5mm; border-right: none; border-top: none; }
+    .corner-br { bottom: 6.5mm; right: 6.5mm; border-left: none; border-top: none; }
+
+    /* Top Ganesha Badge */
+    .ganesha-circle-badge {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 2.5px solid #c5a059;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 4px;
+      box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35);
+      object-fit: contain;
+      margin-bottom: 6px;
+    }
+
+    /* Religious Invocations */
+    .invocation-text-ganesh {
+      font-family: 'Noto Serif Devanagari', 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #541224;
+      letter-spacing: 0.5px;
+      text-align: center;
+      margin-bottom: 2px;
+    }
+
+    .invocation-text-satnam {
+      font-family: 'Noto Serif Devanagari', 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #541224;
+      letter-spacing: 0.5px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Shloka Box */
+    .shloka-card {
+      background: rgba(255, 253, 248, 0.95);
+      border: 1.5px solid rgba(197, 160, 89, 0.6);
+      border-radius: 14px;
+      padding: 16px 22px;
+      box-shadow: 0 4px 15px rgba(84, 18, 36, 0.08);
+      margin: 8px auto 14px;
+      max-width: 540px;
+      text-align: center;
+    }
+
+    .shloka-sanskrit {
+      font-family: 'Noto Serif Devanagari', Georgia, serif;
+      font-size: 1.22rem;
+      color: #6e1732;
+      font-weight: 700;
+      line-height: 1.8;
+      letter-spacing: 0.5px;
+    }
+
+    /* Headings & Text */
+    .royal-heading-sm {
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #9e7d36;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .royal-heading-main {
+      font-family: 'Cinzel', serif;
+      font-size: 1.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #541224;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .couple-names-calligraphy {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.4rem;
+      color: #6e1732;
+      text-align: center;
+      line-height: 1.15;
+      margin: 4px 0 8px;
+    }
+
+    .couple-names-calligraphy .amp {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.4rem;
+      color: #c5a059;
+      font-style: italic;
+      margin: 0 8px;
+    }
+
+    .hashtag-pill {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      letter-spacing: 2px;
+      color: #831843;
+      font-weight: 700;
+      background: rgba(197, 160, 89, 0.15);
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      padding: 5px 18px;
+      border-radius: 999px;
+      margin: 6px 0 12px;
+    }
+
+    .date-pill-large {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      letter-spacing: 2.5px;
+      color: #541224;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, rgba(255, 252, 246, 0.95), rgba(250, 237, 211, 0.9));
+      border: 2px solid #c5a059;
+      padding: 10px 28px;
+      border-radius: 999px;
+      box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+      margin: 8px 0;
+    }
+
+    .invitation-body-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      color: #4a3b32;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 530px;
+      margin: 0 auto 12px;
+    }
+
+    /* Person / Couple Blocks */
+    .person-block {
+      text-align: center;
+      margin: 8px 0;
+    }
+
+    .person-title-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #6e1732;
+      line-height: 1.1;
+      margin-bottom: 2px;
+    }
+
+    .person-parents-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.08rem;
+      color: #5e4f52;
+      line-height: 1.4;
+    }
+
+    .person-parents-text strong {
+      color: #2c1a1d;
+      font-weight: 700;
+    }
+
+    .weds-divider-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #c5a059;
+      margin: 2px 0;
+      text-align: center;
+    }
+
+    /* Ceremony Card Theming */
+    .ceremony-card-page {
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    .ceremony-box-frosted {
+      background: rgba(255, 252, 244, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      padding: 22px 20px 18px;
+      text-align: center;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .ceremony-tagline-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .ceremony-sub-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: #8c6b45;
+      margin-bottom: 4px;
+    }
+
+    .ceremony-sub-desc {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #5d4037;
+      margin-bottom: 12px;
+    }
+
+    .ceremony-title-large {
+      font-family: 'Cinzel', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .ceremony-time-badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 7px 22px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      margin-bottom: 12px;
+    }
+
+    .ceremony-address-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #3e322d;
+      line-height: 1.5;
+      margin: 8px auto 14px;
+      max-width: 460px;
+    }
+
+    /* Clickable Directions Map Buttons */
+        /* Click Here Hint for Google Maps */
+    .maps-click-hint {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin: 8px auto 5px;
+      text-align: center;
+    }
+    .theme-mehndi .maps-click-hint { color: #2e7d32; }
+    .theme-sangeet .maps-click-hint { color: #6a1b9a; }
+    .venue-card-box .maps-click-hint { color: #8c6b45; }
+
+    .btn-maps-directions {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+      color: #541224;
+      font-family: 'Cinzel', serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-decoration: none;
+      padding: 9px 24px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(197, 160, 89, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      margin-top: 4px;
+    }
+
+    .dress-code-box {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: #5e4f52;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px dashed rgba(197, 160, 89, 0.5);
+      border-radius: 8px;
+      padding: 6px 14px;
+      margin-top: 10px;
+      display: inline-block;
+      max-width: 480px;
+    }
+
+    .dress-code-box strong {
+      color: #541224;
+      font-weight: 700;
+    }
+
+    /* Illustration Container */
+    .illustration-bottom-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: 10px;
+      flex-shrink: 0;
+    }
+
+    .illustration-bottom-wrap img {
+      max-height: 190px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.2));
+    }
+
+    /* Timeline Badges for Wedding */
+    .timeline-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px 12px;
+      margin: 10px auto;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(197, 160, 89, 0.45);
+    }
+
+    .timeline-pill-unit {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #541224;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1.2px solid rgba(197, 160, 89, 0.6);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    .timeline-pill-divider {
+      color: #c5a059;
+      font-size: 0.75rem;
+    }
+
+    /* Specific Ceremony Palettes */
+    /* Mehndi */
+    .theme-mehndi .ceremony-tagline-text { color: #2e7d32; }
+    .theme-mehndi .ceremony-title-large { color: #1b5e20; }
+    .theme-mehndi .ceremony-time-badge { background: #e8f5e9; border: 1.5px solid #81c784; color: #1b5e20; }
+
+    /* Sangeet */
+    .theme-sangeet .ceremony-tagline-text { color: #6a1b9a; }
+    .theme-sangeet .ceremony-title-large { color: #4a148c; }
+    .theme-sangeet .ceremony-time-badge { background: #f3e5f5; border: 1.5px solid #ba68c8; color: #4a148c; }
+
+    /* Haldi */
+    .theme-haldi .ceremony-tagline-text { color: #b78103; }
+    .theme-haldi .ceremony-title-large { color: #996500; }
+    .theme-haldi .ceremony-time-badge { background: #fffde7; border: 1.5px solid #ffd54f; color: #8d5b00; }
+
+    /* Wedding */
+    .theme-wedding .ceremony-tagline-text { color: #b71c1c; }
+    .theme-wedding .ceremony-title-large { color: #880e4f; }
+    .theme-wedding .ceremony-time-badge { background: #ffebee; border: 1.5px solid #e57373; color: #880e4f; }
+
+    /* Page 7: Venue Card */
+    .venue-card-box {
+      background: rgba(255, 255, 255, 0.95);
+      border: 2px solid #c5a059;
+      border-radius: 16px;
+      padding: 22px 24px;
+      max-width: 530px;
+      margin: 10px auto;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(84, 18, 36, 0.08);
+    }
+
+    .venue-tag-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #9e7d36;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .venue-title-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.75rem;
+      color: #541224;
+      font-weight: 800;
+      margin: 6px 0;
+    }
+
+    .venue-address-full {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.12rem;
+      color: #5e4f52;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .host-families-box {
+      background: rgba(250, 245, 235, 0.9);
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      border-radius: 12px;
+      padding: 14px 20px;
+      max-width: 500px;
+      margin: 10px auto;
+      text-align: center;
+    }
+
+    .host-names {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: #6e1732;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: #6d5032;
+    }
+
+    .footer-ganesha-mini {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1.5px solid #c5a059;
+      background: #fff;
+      padding: 2px;
+      margin: 0 auto 6px;
+      display: block;
+    }
+
+    .footer-signature {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .footer-signature .with-love {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8rem;
+      color: #9e7d36;
+    }
+
+    .footer-signature .couple-signature-names {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #541224;
+      letter-spacing: 2px;
+      margin: 2px 0;
+    }
+
+    .footer-signature .footer-date {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #7d6b6e;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       PAGE 1: ROYAL COVER
+       ======================================================================== -->
+  <section class="pdf-page" id="page-1">
+    <div class="page-border-frame"></div>
+    <div class="page-border-inner"></div>
+    <div class="corner-ornament corner-tl"></div>
+    <div class="corner-ornament corner-tr"></div>
+    <div class="corner-ornament corner-bl"></div>
+    <div class="corner-ornament corner-br"></div>
+
+    <!-- Header Invocation -->
+    <div style="text-align: center; margin-top: 10mm; z-index: 10;">
+      <img src="../assets/img/ganesha.jpg" alt="Lord Ganesha" class="ganesha-circle-badge">
+      <div class="invocation-text-ganesh">ॐ श्री गणेशाय नमः</div>
+      <div class="invocation-text-satnam">॥ सत्यनाम ॥</div>
+    </div>
+
+    <!-- Center Content -->
+    <div style="text-align: center; z-index: 10; margin: auto 0;">
+      <img src="../assets/img/wax_seal.jpg" alt="MM Monogram" style="width: 72px; height: 72px; border-radius: 50%; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4); margin-bottom: 12px;">
+      
+      <div class="royal-heading-sm">Wedding Invitation</div>
+      
+      <h1 class="couple-names-calligraphy">
+        Mrunal <span class="amp">&amp;</span> Mitesh
+      </h1>
+      
+      <div class="hashtag-pill">#MrunalWedsMitesh</div>
+
+      <div style="margin: 10px 0;">
+        <div class="date-pill-large">6th December 2026</div>
+      </div>
+
+      <div style="font-family: 'Cinzel', serif; font-size: 0.95rem; letter-spacing: 3px; color: #8c6b45; font-weight: 600; text-transform: uppercase; margin-top: 6px;">
+        Vadodara · Gujarat
+      </div>
+    </div>
+
+    <!-- Bottom Flourish -->
+    <div style="text-align: center; margin-bottom: 10mm; z-index: 10;">
+      <div style="color: #c5a059; font-size: 1.1rem; letter-spacing: 6px; margin-bottom: 6px;">✦ ✦ ✦</div>
+      <p style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: #5e4f52; font-style: italic; max-width: 480px; margin: 0 auto;">
+        Together with their families, invite you to celebrate the joyous union of their hearts and lives in sacred matrimony.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PAGE 2: AUSPICIOUS BLESSINGS & INVITATION
+       ======================================================================== -->
+  <section class="pdf-page" id="page-2" style="justify-content: center; padding: 14mm 14mm 12mm;">
+    <div class="page-border-frame"></div>
+    <div class="page-border-inner"></div>
+    <div class="corner-ornament corner-tl"></div>
+    <div class="corner-ornament corner-tr"></div>
+    <div class="corner-ornament corner-bl"></div>
+    <div class="corner-ornament corner-br"></div>
+
+    <!-- Top Apex Arch -->
+    <div style="text-align: center; z-index: 10; width: 100%; margin-bottom: 34px;">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <img src="../assets/img/ganesha.jpg" alt="Lord Ganesha" class="ganesha-circle-badge" style="width: 66px; height: 66px; display: block; margin: 0 auto 6px;">
+        
+        <div style="display: inline-block; background: rgba(255, 252, 246, 0.92); border: 1.5px solid rgba(197, 160, 89, 0.5); border-radius: 25px; padding: 4px 18px; margin: 0 auto 8px;">
+          <span style="font-family: 'Cinzel', serif; color: #541224; font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;">
+            || OM SHREE GANESHAYA NAMAH ||
+          </span>
+        </div>
+      </div>
+
+      <!-- Sacred Sanskrit Shloka (No English translation) -->
+      <div class="shloka-card" style="margin: 0 auto;">
+        <p class="shloka-sanskrit">
+          मङ्गलम् भगवान् विष्णुः मङ्गलम् गरुडध्वजः ।<br>
+          मङ्गलम् पुण्डरीकाक्षः मङ्गलाय तनो हरिः ।।
+        </p>
+      </div>
+    </div>
+
+    <!-- Invitation Message & Names -->
+    <div style="text-align: center; z-index: 10; margin: 0 auto 30px;">
+      <p class="invitation-body-text" style="margin-bottom: 12px;">
+        We request the honor of your gracious presence and blessings on the auspicious occasion of the wedding celebration of
+      </p>
+
+      <!-- Bride: Mrunal -->
+      <div class="person-block">
+        <h2 class="person-title-name">Mrunal</h2>
+        <p class="person-parents-text">
+          D/o <strong>Mr. Ganesh Rahangdale &amp; Mrs. Kamal Rahangdale</strong>
+        </p>
+      </div>
+
+      <div class="weds-divider-script">— weds —</div>
+
+      <!-- Groom: Mitesh -->
+      <div class="person-block">
+        <h2 class="person-title-name">Mitesh</h2>
+        <p class="person-parents-text">
+          S/o <strong>Mr. Yogesh Bhai Upadhyay &amp; Mrs. Urvashi Upadhyay</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Shiva-Parvati Blessing -->
+    <div style="text-align: center; z-index: 10;">
+      <img src="../assets/img/shiva-parvati.png" alt="Lord Shiva and Goddess Parvati" style="max-height: 225px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(197, 160, 89, 0.35));">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.74rem; letter-spacing: 2.2px; color: #8c6b45; text-transform: uppercase; margin-top: 6px;">
+        Seek Divine Blessings &amp; Eternal Grace
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PAGE 3: MEHNDI CEREMONY
+       ======================================================================== -->
+  <section class="pdf-page ceremony-card-page theme-mehndi" id="page-3" style="background-image: url('../assets/img/g-mehndi-background.png');">
+    <div class="page-border-frame" style="border-color: #81c784;"></div>
+    <div class="page-border-inner" style="border-color: rgba(129, 199, 132, 0.4);"></div>
+    <div class="corner-ornament corner-tl" style="border-color: #81c784;"></div>
+    <div class="corner-ornament corner-tr" style="border-color: #81c784;"></div>
+    <div class="corner-ornament corner-bl" style="border-color: #81c784;"></div>
+    <div class="corner-ornament corner-br" style="border-color: #81c784;"></div>
+
+    <div style="font-size: 1.2rem; letter-spacing: 8px; margin-top: 8mm; z-index: 10; text-align: center;">
+      🍃 ✨ 🌿
+    </div>
+
+    <!-- Frosted Card -->
+    <div class="ceremony-box-frosted" style="z-index: 10;">
+      <p class="ceremony-tagline-text">#MehndiHaiRachneWali</p>
+      <p class="ceremony-sub-heading">PLEASE JOIN US FOR AN AFTERNOON</p>
+      <p class="ceremony-sub-desc">Filled with vibrant hues, joyful moments and fragrant henna.</p>
+      
+      <h3 class="ceremony-title-large">MEHNDI CEREMONY</h3>
+
+      <div class="ceremony-time-badge">
+        4TH DECEMBER 2026 | 4:00 PM ONWARDS
+      </div>
+
+      <p class="ceremony-address-text">
+        46 – Swatantra Senani Nagar, In Police Chowki Lane, Samta, Vadodara – 390023.
+      </p>
+
+      <div>
+        <a href="https://www.google.com/maps/search/?api=1&query=46+-+Swatantra+Senani+Nagar%2C+In+Police+Chowki+Lane%2C+Samta%2C+Vadodara+-+390023" class="maps-click-hint" target="_blank" rel="noopener noreferrer">✦ CLICK HERE FOR DIRECTIONS ✦</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=46+-+Swatantra+Senani+Nagar%2C+In+Police+Chowki+Lane%2C+Samta%2C+Vadodara+-+390023" class="btn-maps-directions" target="_blank" rel="noopener noreferrer">
+          <span>📍 GET DIRECTIONS (GOOGLE MAPS)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Foreground Couple -->
+    <div class="illustration-bottom-wrap" style="z-index: 10; margin-bottom: 13mm;">
+      <img src="../assets/img/mehndi-foreground.png" alt="Mehndi Couple" style="max-height: 300px; width: auto; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));">
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PAGE 4: SANGEET CELEBRATION
+       ======================================================================== -->
+  <section class="pdf-page ceremony-card-page theme-sangeet" id="page-4" style="background-image: url('../assets/img/g-sangeet-background.png');">
+    <div class="page-border-frame" style="border-color: #ba68c8;"></div>
+    <div class="page-border-inner" style="border-color: rgba(186, 104, 200, 0.4);"></div>
+    <div class="corner-ornament corner-tl" style="border-color: #ba68c8;"></div>
+    <div class="corner-ornament corner-tr" style="border-color: #ba68c8;"></div>
+    <div class="corner-ornament corner-bl" style="border-color: #ba68c8;"></div>
+    <div class="corner-ornament corner-br" style="border-color: #ba68c8;"></div>
+
+    <div style="font-size: 1.2rem; letter-spacing: 8px; margin-top: 8mm; z-index: 10; text-align: center;">
+      ✨ 🎵 💫
+    </div>
+
+    <!-- Frosted Card -->
+    <div class="ceremony-box-frosted" style="z-index: 10;">
+      <p class="ceremony-tagline-text">#YeShaamShandaar</p>
+      <p class="ceremony-sub-heading">PLEASE JOIN US FOR AN EVENING</p>
+      <p class="ceremony-sub-desc">Where melodies meet memories and hearts dance with unrestrained joy.</p>
+      
+      <h3 class="ceremony-title-large">SANGEET CELEBRATION</h3>
+
+      <div class="ceremony-time-badge">
+        5TH DECEMBER 2026 | 7:00 PM ONWARDS
+      </div>
+
+      <p class="ceremony-address-text">
+        Stellar Kitchen, Opp. Police Chowki, Sevasi, Behind Sears Tower, Vadodara, Gujarat – 391101.
+      </p>
+
+      <div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Stellar+Kitchen%2C+Opp.+Police+Chowki%2C+Sevasi%2C+Behind+Sears+Tower%2C+Vadodara%2C+Gujarat+-+391101" class="maps-click-hint" target="_blank" rel="noopener noreferrer">✦ CLICK HERE FOR DIRECTIONS ✦</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Stellar+Kitchen%2C+Opp.+Police+Chowki%2C+Sevasi%2C+Behind+Sears+Tower%2C+Vadodara%2C+Gujarat+-+391101" class="btn-maps-directions" target="_blank" rel="noopener noreferrer">
+          <span>📍 GET DIRECTIONS (GOOGLE MAPS)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Foreground Couple -->
+    <div class="illustration-bottom-wrap" style="z-index: 10; margin-bottom: 14mm;">
+      <img src="../assets/img/sangeet-foreground.png" alt="Sangeet Couple" style="max-height: 305px; width: auto; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));">
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PAGE 5: HALDI CEREMONY
+       ======================================================================== -->
+  <section class="pdf-page ceremony-card-page theme-haldi" id="page-5" style="background-image: url('../assets/img/g-haldi-background.png');">
+    <div class="page-border-frame" style="border-color: #ffd54f;"></div>
+    <div class="page-border-inner" style="border-color: rgba(255, 213, 79, 0.45);"></div>
+    <div class="corner-ornament corner-tl" style="border-color: #ffd54f;"></div>
+    <div class="corner-ornament corner-tr" style="border-color: #ffd54f;"></div>
+    <div class="corner-ornament corner-bl" style="border-color: #ffd54f;"></div>
+    <div class="corner-ornament corner-br" style="border-color: #ffd54f;"></div>
+
+    <div style="font-size: 1.2rem; letter-spacing: 8px; margin-top: 8mm; z-index: 10; text-align: center;">
+      🌸 🌼 ✨
+    </div>
+
+    <!-- Frosted Card -->
+    <div class="ceremony-box-frosted" style="z-index: 10;">
+      <p class="ceremony-tagline-text">#SunMeetsSky</p>
+      <p class="ceremony-sub-heading">PLEASE JOIN US FOR A MORNING</p>
+      <p class="ceremony-sub-desc">Filled with love, laughter and golden turmeric blessings.</p>
+      
+      <h3 class="ceremony-title-large">HALDI CEREMONY</h3>
+
+      <div class="ceremony-time-badge">
+        SUNDAY, 6TH DECEMBER 2026 | 10:00 AM (MORNING)
+      </div>
+
+      <p class="ceremony-address-text" style="color: #6d5032; font-style: italic;">
+        Auspicious Haldi ceremonies with joyous turmeric rituals, traditional songs and sweet festive moments.
+      </p>
+    </div>
+
+    <!-- Foreground Couple -->
+    <div class="illustration-bottom-wrap" style="z-index: 10; margin-bottom: 8mm;">
+      <img src="../assets/img/haldi-foreground.png" alt="Haldi Couple" style="max-height: 292px; width: auto; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));">
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PAGE 6: SACRED WEDDING CEREMONY
+       ======================================================================== -->
+  <section class="pdf-page ceremony-card-page theme-wedding" id="page-6" style="background-image: url('../assets/img/g-wedding-background.png');">
+    <div class="page-border-frame" style="border-color: #e57373;"></div>
+    <div class="page-border-inner" style="border-color: rgba(229, 115, 115, 0.45);"></div>
+    <div class="corner-ornament corner-tl" style="border-color: #e57373;"></div>
+    <div class="corner-ornament corner-tr" style="border-color: #e57373;"></div>
+    <div class="corner-ornament corner-bl" style="border-color: #e57373;"></div>
+    <div class="corner-ornament corner-br" style="border-color: #e57373;"></div>
+
+    <div style="font-size: 1.2rem; letter-spacing: 8px; margin-top: 8mm; z-index: 10; text-align: center;">
+      🌸 ✨ 🔥
+    </div>
+
+    <!-- Frosted Card -->
+    <div class="ceremony-box-frosted" style="z-index: 10;">
+      <p class="ceremony-tagline-text">#MrunalWedsMitesh</p>
+      <p class="ceremony-sub-heading">PLEASE JOIN US FOR A SACRED CELEBRATION</p>
+      <p class="ceremony-sub-desc">As two hearts, two families and two journeys unite in sacred matrimony.</p>
+      
+      <h3 class="ceremony-title-large">WEDDING CEREMONY</h3>
+
+      <div class="ceremony-time-badge">
+        SUNDAY, 6TH DECEMBER 2026 | 6:00 PM ONWARDS (EVENING)
+      </div>
+
+      <!-- Sacred Timeline Badges -->
+      <div class="timeline-pill-row">
+        <span class="timeline-pill-unit">🎺 Baraat · 6:00 PM</span>
+        <span class="timeline-pill-divider">✦</span>
+        <span class="timeline-pill-unit">🌸 Mangalashtak · 8:00 PM</span>
+        <span class="timeline-pill-divider">✦</span>
+        <span class="timeline-pill-unit">🔥 Sacred Pheras · 9:00 PM</span>
+      </div>
+    </div>
+
+    <!-- Foreground Couple -->
+    <div class="illustration-bottom-wrap" style="z-index: 10; margin-bottom: 11mm;">
+      <img src="../assets/img/wedding-foreground.png" alt="Wedding Couple" style="max-height: 300px; width: auto; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.22));">
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PAGE 7: WEDDING VENUE & FAMILY BLESSINGS
+       ======================================================================== -->
+  <section class="pdf-page" id="page-7">
+    <div class="page-border-frame"></div>
+    <div class="page-border-inner"></div>
+    <div class="corner-ornament corner-tl"></div>
+    <div class="corner-ornament corner-tr"></div>
+    <div class="corner-ornament corner-bl"></div>
+    <div class="corner-ornament corner-br"></div>
+
+    <!-- Top Awaiting Title -->
+    <div style="text-align: center; margin-top: 8mm; z-index: 10;">
+      <div style="font-size: 2.2rem; margin-bottom: 6px;">🧿</div>
+      <h2 style="font-family: 'Cinzel', serif; font-size: 1.8rem; color: #541224; font-weight: 700; letter-spacing: 2px;">
+        Awaiting Your Noble Presence
+      </h2>
+      <p style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; color: #5e4f52; font-style: italic; max-width: 500px; margin: 4px auto 14px;">
+        “Join us as we celebrate love, laughter, and the beginning of forever beautiful together.”
+      </p>
+    </div>
+
+    <!-- Host Families Box -->
+    <div class="host-families-box" style="z-index: 10;">
+      <div style="font-family: 'Cinzel', serif; font-size: 0.76rem; letter-spacing: 2px; color: #9e7d36; text-transform: uppercase; font-weight: 700; margin-bottom: 2px;">
+        Cordially Invited By
+      </div>
+      <div class="host-names">Rahangdale &amp; Upadhyay Families</div>
+      <p class="host-message">
+        With the love, blessings of our elders and warm regards of all family members.
+      </p>
+    </div>
+
+    <!-- Venue Card Box -->
+    <div class="venue-card-box" style="z-index: 10;">
+      <span class="venue-tag-badge">Wedding Ceremony Venue</span>
+      <h3 class="venue-title-name">Gopi Utsav Vatika</h3>
+      <p class="venue-address-full">
+        Gopi Utsav Vatika, Khanpur Road, New Alkapuri, Ankodiya, Vadodara, Gujarat – 390023
+      </p>
+      
+      <div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Gopi%20Utsav%20Vatika%2C%20Khanpur%20Road%2C%20New%20Alkapuri%2C%20Ankodiya%2C%20Vadodara%2C%20Gujarat%20390023" class="maps-click-hint" target="_blank" rel="noopener noreferrer">✦ CLICK HERE FOR DIRECTIONS ✦</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Gopi%20Utsav%20Vatika%2C%20Khanpur%20Road%2C%20New%20Alkapuri%2C%20Ankodiya%2C%20Vadodara%2C%20Gujarat%20390023" class="btn-maps-directions" style="font-size: 0.9rem; padding: 12px 30px;" target="_blank" rel="noopener noreferrer">
+          <span>📍 GET DIRECTIONS (GOOGLE MAPS)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer Signature -->
+    <div class="footer-signature" style="z-index: 10; margin-bottom: 8mm;">
+      <img src="../assets/img/ganesha.jpg" alt="Lord Ganesha" class="footer-ganesha-mini">
+      <div class="with-love">With Love &amp; Gratitude</div>
+      <div class="couple-signature-names">Mrunal &amp; Mitesh</div>
+      <div class="footer-date">6th December 2026 · Vadodara, Gujarat</div>
+      <div style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: #831843; font-weight: 700; margin-top: 4px;">#MrunalWedsMitesh</div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('page');
+    if (p) {
+      document.querySelectorAll('.pdf-page').forEach(el => {
+        if (el.id !== `page-${p}`) el.style.display = 'none';
+      });
+    }
+  </script>
+</body>
+</html>

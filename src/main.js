@@ -54,6 +54,10 @@ function populateConfigData() {
 
   const mapsBtn = document.getElementById('btn-get-directions');
   if (mapsBtn) mapsBtn.href = cfg.venue.googleMapsUrl;
+  const mehndiMapsBtn = document.getElementById('btn-mehndi-directions');
+  if (mehndiMapsBtn && cfg.events[0]?.googleMapsUrl) mehndiMapsBtn.href = cfg.events[0].googleMapsUrl;
+  const sangeetMapsBtn = document.getElementById('btn-sangeet-directions');
+  if (sangeetMapsBtn && cfg.events[1]?.googleMapsUrl) sangeetMapsBtn.href = cfg.events[1].googleMapsUrl;
 
   // Render Wardrobe Guide
   renderWardrobeGuide(cfg.events);

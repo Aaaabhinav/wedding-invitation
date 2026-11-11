@@ -1215,6 +1215,46 @@ body {
 }
 
 /* Ceremony Venue Address */
+
+/* Ceremony Directions Box & Hint */
+.ceremony-directions-box {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ceremony-directions-hint {
+  font-family: var(--font-royal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.ceremony-card-mehndi .ceremony-directions-hint {
+  color: #2e7d32;
+}
+
+.ceremony-card-sangeet .ceremony-directions-hint {
+  color: #6a1b9a;
+}
+
+.ceremony-directions-hint:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
+.ceremony-directions-btn {
+  font-size: 0.9rem;
+  padding: 10px 26px;
+}
+
 .ceremony-address {
   font-family: var(--font-serif);
   font-size: 1.05rem;
@@ -1356,6 +1396,22 @@ body {
     margin-top: 10px;
     line-height: 1.45;
   }
+
+  .ceremony-directions-box {
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .ceremony-directions-hint {
+    font-size: 0.68rem;
+    letter-spacing: 1.6px;
+  }
+
+  .ceremony-directions-btn {
+    font-size: 0.85rem;
+    padding: 9px 22px;
+  }
+
 
   /* Lower foreground so couple never merges with the dates */
   .ceremony-foreground-wrap {
